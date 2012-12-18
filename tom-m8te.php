@@ -72,10 +72,10 @@ function tom_update_record_by_id($table_name, $update_array, $id_column_name, $i
 	return $wpdb->update($table_name_prefix, $update_array, array($id_column_name => $id));
 }
 
-function tom_update_record($table_name, $update_array, $find_array) {
+function tom_update_record($table_name, $update_array, $where_array) {
 	global $wpdb;
 	$table_name_prefix = $wpdb->prefix.$table_name;
-	return $wpdb->update($table_name_prefix, $update_array, $find_array);
+	return $wpdb->update($table_name_prefix, $update_array, $where_array);
 }
 
 function tom_delete_record_by_id($table_name, $id_column_name, $delete_id) {
@@ -84,7 +84,7 @@ function tom_delete_record_by_id($table_name, $id_column_name, $delete_id) {
 	return $wpdb->query($wpdb->prepare("DELETE FROM $table_name_prefix WHERE $id_column_name = %d", $delete_id));
 }
 
-function tom_get_results($table_name, $fields_array, $where_clause, $order_clause = "", $limit_clause = "") {
+function tom_get_results($table_name, $fields_array, $where_array, $order_array = array(), $limit = "") {
 	global $wpdb;
 	$table_name_prefix = $wpdb->prefix.$table_name;
 	if ($fields_array == "*") {
@@ -93,14 +93,14 @@ function tom_get_results($table_name, $fields_array, $where_clause, $order_claus
 		$fields_comma_separated = implode(",", $fields_array);
 	}
 	$order_sql = "";
-	if ($order_clause != "") {
-		$order_sql = "ORDER BY $order_clause";
+	if (empty($order_array)) {
+		$order_sql = "ORDER BY ".implode(",", $order_array);
 	}
 	$limit_sql = "";
-	if ($limit_clause != "") {
-		$limit_sql = "LIMIT $limit_clause";
+	if ($limit != "") {
+		$limit_sql = "LIMIT $limit";
 	}
-	return $wpdb->get_results("SELECT $fields_comma_separated FROM $table_name_prefix WHERE $where_clause $order_sql $limit_sql");
+	return $wpdb->get_results("SELECT $fields_comma_separated FROM $table_name_prefix WHERE $where_array $order_sql $limit_sql");
 }
 
 function tom_get_row_by_id($table_name, $fields_array, $id_column_name, $id) {
