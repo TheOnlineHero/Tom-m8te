@@ -33,8 +33,8 @@ function register_tom_m8te_page() {
 
 function tom_add_social_share_links($url) {
 	?>
-	<a title="Share On Facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo($url); ?>"><img style="width: 30px;" src="http://profile.ak.fbcdn.net/hprofile-ak-prn1/174834_20531316728_3694083_n.jpg" style="width: 30px;" /></a>
-	<a title="Share On Twitter" target="_blank" href="http://twitter.com/intent/tweet?url=<?php echo($url); ?>"><img style="width: 30px;" src="http://www.connectedaustralia.com/Portals/1/twitter_icon.gif" style="width: 30px;" /></a>
+	<a title="Share On Facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo($url); ?>"><img style="width: 30px;" src="<?php echo(get_option("siteurl")); ?>/wp-content/plugins/tom-m8te/images/facebook.jpg" style="width: 30px;" /></a>
+	<a title="Share On Twitter" target="_blank" href="http://twitter.com/intent/tweet?url=<?php echo($url); ?>"><img style="width: 30px;" src="<?php echo(get_option("siteurl")); ?>/wp-content/plugins/tom-m8te/images/twitter.jpg" style="width: 30px;" /></a>
 	<?php
 }
 

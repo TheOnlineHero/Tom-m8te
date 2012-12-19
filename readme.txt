@@ -1,7 +1,7 @@
 === Tom M8te ===
 Contributors: MMDeveloper
 Donate link: 
-Tags: plugin, plugins, MySQL, database, helper, helpers, method, methods, crud
+Tags: plugin, plugins, MySQL, database, databases, helper, helpers, method, methods, crud
 Requires at least: 3.3
 Tested up to: 3.4
 Stable tag: 1.0
@@ -19,12 +19,6 @@ The social links link to Facebook and Twitter share links.
 Facebook: https://www.facebook.com/sharer/sharer.php?u=
 
 Twitter:  http://twitter.com/intent/tweet?url=
-
-The social images are coming from these sources:
-
-Facebook: http://profile.ak.fbcdn.net/hprofile-ak-prn1/174834_20531316728_3694083_n.jpg
-
-Twitter:  http://www.connectedaustralia.com/Portals/1/twitter_icon.gif
 
 
 Functions:
